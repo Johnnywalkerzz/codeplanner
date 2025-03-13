@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom utility classes */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+  
+  .btn-primary {
+    @apply bg-indigo-600 text-white hover:bg-indigo-700 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:text-white;
+  }
+  
+  .btn-secondary {
+    @apply bg-slate-200 text-slate-900 hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600;
+  }
+  
+  .btn-outline {
+    @apply border border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-600;
+  }
+}
+
+/* Base styles */
+body {
+  @apply bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-200 dark:bg-slate-800 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-400 dark:bg-slate-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-500 dark:bg-slate-500;
+}
+
+/* Animation utilities */
+.animate-in {
+  animation: animateIn 0.3s ease-in-out;
+}
+
+.animate-out {
+  animation: animateOut 0.3s ease-in-out;
+}
+
+@keyframes animateIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes animateOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* Code styling */
+pre {
+  @apply p-4 rounded-md bg-slate-950 dark:bg-black border border-slate-800 dark:border-slate-700 text-slate-200 overflow-x-auto;
+}
+
+code {
+  @apply font-mono text-sm;
+}
+
+/* For code editor line numbers */
+.code-line-numbers {
+  @apply text-right pr-4 text-slate-500 dark:text-slate-500 select-none;
+  counter-reset: line;
+}
+
+.code-line-numbers span {
+  counter-increment: line;
+}
+
+.code-line-numbers span::before {
+  content: counter(line);
+  display: block;
+}
